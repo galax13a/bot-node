@@ -5,6 +5,13 @@ const nDate = new Date().toLocaleString('en-US', {
     timeZone: 'America/Bogota'
 });
 console.log(nDate);
+let con;
+con = 1;
+setInterval(carga, 1000);
+async function carga() {
+    con++;
+    console.log("carga con " + con);
+}
 
 (async() => {
 
@@ -44,5 +51,7 @@ console.log(nDate);
     let rawdata = fs.readFileSync('dolar.json');
     let dolar_json = JSON.parse(rawdata);
     console.log(dolar_json);
+
+
 
 })();
