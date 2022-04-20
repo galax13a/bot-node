@@ -7,7 +7,7 @@ const nDate = new Date().toLocaleString('en-US', {
 console.log(nDate);
 let con;
 con = 1;
-setInterval(carga, 5000);
+setInterval(carga, 30000);
 async function carga() {
     con++;
     console.log("carga con " + con);
