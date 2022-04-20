@@ -18,10 +18,13 @@ var server = app.listen(port, function() {
 });
 
 app.get('/', (req, res) => {
-    res.send('Hello API CAM4.com! \n ' + server.address().port)
+    res.send('Hello API Cams.com! ')
 })
 app.get('/dolar', (req, res) => {
-    res.send('Dolar API CAM4.com!')
+    // res.send('Dolar API CAM4.com!')
+    let rawdata = fs.readFileSync('dolar.json');
+    let dolar_json = JSON.parse(rawdata);
+    res.json(dolar_json)
 })
 app.get('/rooms', (req, res) => {
     res.send('Rooms API CAM4.com!')

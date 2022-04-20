@@ -15,7 +15,7 @@ console.log(nDate);
         args: ['--no-sandbox', '--disable-setuid-sandbox', '--use-gl=egl']
     })
 
-    console.log("Empezando  Dolar Web ... v1");
+    console.log("****  Dolar Web ... v1.0");
     const page = await browser.newPage();
     await page.setUserAgent('5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36');
     await page.goto("https://dolar.wilkinsonpc.com.co/");
@@ -40,5 +40,9 @@ console.log(nDate);
     const data = JSON.stringify(dolar);
     fs.writeFileSync(path.join(__dirname, "dolar.json"), data);
     console.log("Create dolar json x.x")
+
+    let rawdata = fs.readFileSync('dolar.json');
+    let dolar_json = JSON.parse(rawdata);
+    console.log(dolar_json);
 
 })();
