@@ -18,7 +18,7 @@ var server = app.listen(port, function() {
 });
 
 app.get('/', (req, res) => {
-    res.send('Hello API Cams.com! ')
+    res.send('Hello API beta***** Cams.com! ')
 })
 app.get('/dolar', (req, res) => {
     // res.send('Dolar API CAM4.com!')
