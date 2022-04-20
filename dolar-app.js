@@ -11,7 +11,8 @@ console.log(nDate);
     console.log("APP Node APi Dolar - rooms - crbs")
     const browser = await puper.launch({
         headless: true,
-        slowMo: 300
+        slowMo: 300,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
     })
 
     console.log("Empezando  Dolar Web ... v1");
