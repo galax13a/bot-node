@@ -34,7 +34,7 @@ const newdate = new Date().toLocaleString('en-US', {
         res.send('cb hrs API CAM4.com!')
     })
 
-
+    console.log("APP Node APi Dolar - rooms - crbs");
 
 
 })();
