@@ -11,7 +11,7 @@ console.log(nDate);
     console.log("APP Node APi Dolar - rooms - crbs")
     const browser = await puper.launch({
         headless: true,
-        slowMo: 600,
+        slowMo: 300,
         args: ['--no-sandbox', '--disable-setuid-sandbox', '--use-gl=egl']
     })
 
@@ -20,7 +20,7 @@ console.log(nDate);
     await page.setUserAgent('5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36');
     await page.goto("https://dolar.wilkinsonpc.com.co/");
     await page.waitForSelector('.tabla_links_foot_td_network');
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(200);
     console.log("Evaluate Page Dolar")
     const dolar = await page.evaluate(() => {
         const dolar_str = document.querySelector(".valor").innerText;
@@ -35,7 +35,7 @@ console.log(nDate);
         };
 
     });
-    console.log("Finish !  " + dolar.dolar_str);
+    console.log("Finish dolar!  " + dolar.dolar_str);
     await browser.close(); //cerramos los browser ..
     const data = JSON.stringify(dolar);
     fs.writeFileSync(path.join(__dirname, "dolar.json"), data);
