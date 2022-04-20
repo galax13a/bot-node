@@ -20,8 +20,8 @@ console.log(nDate);
     await page.setUserAgent('5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36');
     await page.goto("https://dolar.wilkinsonpc.com.co/");
     await page.waitForSelector('.tabla_links_foot_td_network');
-    await page.waitForTimeout(600);
-
+    await page.waitForTimeout(300);
+    console.log("Evaluate Page Dolar")
     const dolar = await page.evaluate(() => {
         const dolar_str = document.querySelector(".valor").innerText;
         const dolar_proy = document.querySelector("#indicador_vigente > div > div.valor > span.numero.promedio").innerText;
