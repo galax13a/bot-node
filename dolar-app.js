@@ -38,6 +38,6 @@ console.log(nDate);
     await browser.close(); //cerramos los browser ..
     const data = JSON.stringify(dolar);
     fs.writeFileSync(path.join(__dirname, "dolar.json"), data);
-    console.log("Create dolar json")
+    console.log("Create dolar json x.x")
 
 })();
