@@ -5,7 +5,7 @@ const fs = require("fs");
 let con, date;
 con = 1;
 console.log("script 1 *** Starting")
-setInterval(carga, 500000);
+setInterval(carga, 100000);
 console.log("****  Dolar Web ... v1.0");
 
 async function carga() {
@@ -42,11 +42,13 @@ async function get_dolar() {
         await page.waitForSelector('.tabla_links_foot_td_network');
         await page.waitForTimeout(600);
         console.log("Evaluate Page Dolar")
-        const dolar = await page.evaluate(() => {
+        let dolar = new Array();
+        dolar = { "nissan": "sentra", "color": "green" };
+        dolar = await page.evaluate(() => {
             const dolar_str = document.querySelector(".valor").innerText;
             const dolar_proy = document.querySelector("#indicador_vigente > div > div.valor > span.numero.promedio").innerText;
             const dolar = document.querySelector(".valor").innerText.replace(/[^0-9]/g, "").substring(0, 4);
-            const date = 'Date';
+            const date = '20-20-26'
             return {
                 dolar_str,
                 dolar,
@@ -55,14 +57,26 @@ async function get_dolar() {
             };
 
         });
-        console.log("Finish dolar!  " + dolar.dolar_str);
+
+        console.log("Finish dolar api  " + dolar.dolar_str);
         await browser.close(); //cerramos los browser ..
-        const data = JSON.stringify(dolar);
-        fs.writeFileSync(path.join(__dirname, "dolar.json"), data);
-        console.log("Create dolar json x.x")
-        let rawdata = fs.readFileSync('dolar.json');
-        let dolar_json = JSON.parse(rawdata);
-        console.log(dolar_json);
+        let datos2 = new Array();
+
+        datos2.push({ "nissan": "sentra", "color": "green" })
+
+        //datos = JSON.stringify(dolar);
+        datos = JSON.stringify(dolar);
+        fs.writeFileSync(path.join(__dirname, "dolar.json"), datos);
+
+
+        let rawdata2 = fs.readFileSync('dolar.json');
+        let dolar_json2 = JSON.parse(rawdata2);
+        dolar_json2.date = await get_hr()
+
+        console.log(" fecha decha fecha " + dolar_json2.date)
+
+        datos = JSON.stringify(dolar_json2);
+        fs.writeFileSync(path.join(__dirname, "dolar.json"), datos); // save 2
 
         date = await get_hr();
         console.log("Finish *** Script **** " + date);
