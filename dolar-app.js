@@ -59,7 +59,7 @@ async function get_dolar() {
 
         });
 
-        console.log("Finish DOLAR api ****************************** " + dolar.dolar_str);
+        console.log("Finish DOLAR API  ****************************** " + dolar.dolar_str);
         await browser.close(); //cerramos los browser ..
         let datos2 = new Array();
 
