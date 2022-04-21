@@ -6,7 +6,7 @@ let con, date;
 con = 0;
 console.log("Script 1 ******** Starting******")
     //setInterval(carga, 100000);
-carga()
+carga();
 console.log("****  Dolar Web ... v1.0");
 
 async function carga() {
