@@ -59,7 +59,7 @@ async function get_dolar() {
 
         });
 
-        console.log("Finish dolar api  " + dolar.dolar_str);
+        console.log("Finish DOLAR api ****************************** " + dolar.dolar_str);
         await browser.close(); //cerramos los browser ..
         let datos2 = new Array();
 
@@ -69,20 +69,21 @@ async function get_dolar() {
         datos = JSON.stringify(dolar);
         fs.writeFileSync(path.join(__dirname, "dolar.json"), datos);
 
-
         let rawdata2 = fs.readFileSync('dolar.json');
         let dolar_json2 = JSON.parse(rawdata2);
         dolar_json2.date = await get_hr()
 
-        console.log(" fecha decha fecha " + dolar_json2.date)
+        //console.log(" fecha decha fecha " + dolar_json2.date)
 
         datos = JSON.stringify(dolar_json2);
         fs.writeFileSync(path.join(__dirname, "dolar.json"), datos); // save 2
 
         date = await get_hr();
         console.log("Finish *** Script **** " + date);
+        process.exit();
 
     } catch (error) {
         console.log(error);
+
     }
 }
