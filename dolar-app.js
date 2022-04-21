@@ -5,7 +5,7 @@ const fs = require("fs");
 let con, date;
 con = 1;
 console.log("script 1 *** Starting")
-setInterval(carga, 1000000);
+setInterval(carga, 100000);
 console.log("****  Dolar Web ... v1.0");
 
 async function carga() {
@@ -31,7 +31,7 @@ async function get_dolar() {
     console.log("Start  *** Scripting ************  " + date);
     const browser = await puper.launch({
         headless: true,
-        slowMo: 600,
+        slowMo: 1200,
         args: ['--no-sandbox', '--disable-setuid-sandbox', '--use-gl=egl']
     })
 
@@ -40,7 +40,7 @@ async function get_dolar() {
         await page.setUserAgent('5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36');
         await page.goto("https://dolar.wilkinsonpc.com.co/");
         await page.waitForSelector('.tabla_links_foot_td_network');
-        await page.waitForTimeout(600);
+        await page.waitForTimeout(900);
         console.log("Evaluate Page Dolar")
         let dolar = new Array();
         dolar = { "nissan": "sentra", "color": "green" };
