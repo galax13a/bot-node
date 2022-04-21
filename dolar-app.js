@@ -5,7 +5,7 @@ const fs = require("fs");
 let con, date;
 con = 1;
 console.log("script 1 *** Starting")
-setInterval(carga, 100000);
+setInterval(carga, 1000000);
 console.log("****  Dolar Web ... v1.0");
 
 async function carga() {
