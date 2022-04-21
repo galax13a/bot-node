@@ -3,9 +3,10 @@ const path = require("path");
 const fs = require("fs");
 
 let con, date;
-con = 1;
+con = 0;
 console.log("script 1 *** Starting")
-setInterval(carga, 100000);
+    //setInterval(carga, 100000);
+carga()
 console.log("****  Dolar Web ... v1.0");
 
 async function carga() {
