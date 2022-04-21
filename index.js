@@ -27,7 +27,7 @@ app.get('/dolar', (req, res) => {
     res.json(dolar_json)
 })
 app.get('/rooms', (req, res) => {
-    res.send('Rooms API CAM4.com!')
+    res.send('scala.... Rooms API CAM4.com!')
 })
 app.get('/cbhrs', (req, res) => {
     res.send('cb hrs API CAM4.com!')
